@@ -1,3 +1,81 @@
+# PhotoFeed
+
+PhotoFeed is a multilingual photo feed web application built with [Next.js](https://nextjs.org/), supporting English and Bengali, styled with Tailwind CSS.
+
+## Features
+
+- Next.js 14 App Router
+- Dynamic locale routing with middleware
+- API routes for photo data ([app/api/photos/](app/api/photos/route.js))
+- Responsive UI with Tailwind CSS
+- ESLint for code quality
+- Custom fonts with `next/font/local`
+- Example components: [`Logo`](components/Logo.jsx), [`Navbar`](components/Navbar.jsx)
+- Sample photo data in [`lib/image-data.js`](lib/image-data.js)
+
+## Getting Started
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Lint
+
+```bash
+npm run lint
+```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Start (production)
+
+```bash
+npm start
+```
+
+## Project Structure
+
+- `app/` - App directory (routing, pages, API, localization)
+- `components/` - Reusable UI components
+- `lib/` - Utility libraries and data
+- `public/` - Static assets (images, icons)
+- `middleware.js` - Locale detection and redirection
+- `tailwind.config.js` & `postcss.config.mjs` - Styling configuration
+
+## Localization
+
+- English and Bengali dictionaries in [`app/[lang]/dictionaries/`](app/[lang]/dictionaries/)
+- Locale is auto-detected and routed via [`middleware.js`](middleware.js)
+
+## API Endpoints
+
+- `GET /api/photos` - All photos ([app/api/photos/route.js](app/api/photos/route.js))
+- `GET /api/photos/[id]` - Photo by ID ([app/api/photos/[id]/route.js](app/api/photos/[id]/route.js))
+
+## Continuous Integration
+
+- GitHub Actions workflow in [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs lint, tests, and build on push/pull request to `main`.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
