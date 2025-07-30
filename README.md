@@ -1,17 +1,65 @@
 # PhotoFeed
 
-PhotoFeed is a multilingual photo feed web application built with [Next.js](https://nextjs.org/), supporting English and Bengali, styled with Tailwind CSS.
+PhotoFeed is a multilingual photo feed web application built with [Next.js 14](https://nextjs.org/), supporting English and Bengali, styled with Tailwind CSS. It demonstrates modern Next.js features, dynamic locale routing, API endpoints, and a responsive UI.
+
+---
 
 ## Features
 
-- Next.js 14 App Router
-- Dynamic locale routing with middleware
-- API routes for photo data ([app/api/photos/](app/api/photos/route.js))
-- Responsive UI with Tailwind CSS
-- ESLint for code quality
-- Custom fonts with `next/font/local`
-- Example components: [`Logo`](components/Logo.jsx), [`Navbar`](components/Navbar.jsx)
-- Sample photo data in [`lib/image-data.js`](lib/image-data.js)
+- **Next.js 14 App Router**: Uses the latest routing and layouts.
+- **Multilingual Support**: English and Bengali, with dynamic locale routing via middleware.
+- **API Routes**: RESTful endpoints for photo data.
+- **Responsive UI**: Built with Tailwind CSS for mobile and desktop.
+- **Custom Fonts**: Uses `next/font/local` for optimized font loading.
+- **Reusable Components**: Includes components like [`Logo`](components/Logo.jsx), [`Navbar`](components/Navbar.jsx), and [`PhotoDetails`](components/PhotoDetails.jsx).
+- **Sample Data**: Demo photo data in [`lib/image-data.js`](lib/image-data.js) using [Picsum](https://picsum.photos/) for images.
+- **ESLint**: Code linting for quality and consistency.
+- **Continuous Integration**: GitHub Actions workflow for lint, test, and build.
+- **Locale Switcher**: Language switcher with flag icons for Bangla (bd.png) and English (usa.png).
+
+---
+
+## Project Structure
+
+```
+photofeed/
+├── app/                  # Next.js app directory (routing, pages, API, localization)
+│   ├── [lang]/           # Language-specific routes and dictionaries
+│   ├── api/photos/       # API endpoints for photo data
+│   └── page.js           # Main page
+├── components/           # Reusable React components (Logo, Navbar, PhotoDetails, LanguageSwitcher, etc.)
+├── lib/                  # Utility libraries and sample data (image-data.js)
+├── public/               # Static assets (images, icons, flags)
+├── styles/               # Global styles (if any)
+├── middleware.js         # Locale detection and redirection
+├── tailwind.config.js    # Tailwind CSS configuration
+├── postcss.config.mjs    # PostCSS configuration
+├── .github/workflows/    # CI/CD workflows (ci.yml)
+├── README.md             # Project documentation
+└── package.json          # Project dependencies and scripts
+```
+
+---
+
+## API Endpoints
+
+- `GET /api/photos`  
+  Returns all photo objects.
+
+- `GET /api/photos/[id]`  
+  Returns a single photo by ID.
+
+See [`app/api/photos/route.js`](app/api/photos/route.js) and [`app/api/photos/[id]/route.js`](app/api/photos/[id]/route.js).
+
+---
+
+## Localization
+
+- Dictionaries for English and Bengali in [`app/[lang]/dictionaries/`](app/[lang]/dictionaries/)
+- Locale is auto-detected and routed via [`middleware.js`](middleware.js)
+- Language switcher updates flag and language based on route
+
+---
 
 ## Getting Started
 
@@ -47,28 +95,24 @@ npm run build
 npm start
 ```
 
-## Project Structure
-
-- `app/` - App directory (routing, pages, API, localization)
-- `components/` - Reusable UI components
-- `lib/` - Utility libraries and data
-- `public/` - Static assets (images, icons)
-- `middleware.js` - Locale detection and redirection
-- `tailwind.config.js` & `postcss.config.mjs` - Styling configuration
-
-## Localization
-
-- English and Bengali dictionaries in [`app/[lang]/dictionaries/`](app/[lang]/dictionaries/)
-- Locale is auto-detected and routed via [`middleware.js`](middleware.js)
-
-## API Endpoints
-
-- `GET /api/photos` - All photos ([app/api/photos/route.js](app/api/photos/route.js))
-- `GET /api/photos/[id]` - Photo by ID ([app/api/photos/[id]/route.js](app/api/photos/[id]/route.js))
+---
 
 ## Continuous Integration
 
 - GitHub Actions workflow in [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs lint, tests, and build on push/pull request to `main`.
+
+---
+
+## Future Improvements
+
+- Add user authentication and profile management
+- Allow users to upload their own photos
+- Add comments and likes functionality
+- Improve accessibility and SEO
+- Add more languages and locale support
+- Integrate real backend/database for photo data
+
+---
 
 ## License
 
@@ -76,39 +120,13 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Picsum Photos](https://picsum.photos/)
+- [GitHub Actions](https://docs.github.com/en/actions)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+_This project was bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)._
